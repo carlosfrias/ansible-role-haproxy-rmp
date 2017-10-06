@@ -52,5 +52,5 @@ backend {{ haproxy_backend_name }}
 {% endif %}
     {# cookie SERVERID insert indirect #}
 {% for host in groups['rmp'] %}
-    server rmp{{ loop.index0}} {{ hostvars[host]['local_address'] }}:{{ edge_proxy_port }} check
+    server rmp{{ loop.index0}} {{ hostvars[host]['private_address'] }}:{{ edge_proxy_port }} check
 {% endfor %}
